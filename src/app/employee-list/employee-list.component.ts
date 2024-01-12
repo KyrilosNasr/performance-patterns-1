@@ -1,5 +1,4 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { List } from 'immutable';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { EmployeeData } from '../shared/list-generator.service';
 
@@ -25,11 +24,9 @@ const fibonacci = (num: number): number => {
         <h3 matLine title="Name">
           {{ item.label }}
         </h3>
-        <mat-chip-list>
           <mat-chip title="Score" class="mat-chip mat-primary mat-chip-selected" color="primary" selected="true">
             {{ calculate(item.num) }}
           </mat-chip>
-        </mat-chip-list>
         <i title="Delete" class="fa fa-trash-o" aria-hidden="true" (click)="remove.emit(item)"></i>
       </mat-list-item>
       <mat-divider *ngIf="data?.length !== 0"></mat-divider>
