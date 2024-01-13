@@ -5,14 +5,11 @@ import { AppComponent } from './app.component';
 
 import { EmployeeListModule } from './employee-list/employee-list.module';
 
-import { MatChipsModule } from '@angular/material/chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListGenerator } from './shared/list-generator.service';
 
-
 @NgModule({
-  imports: [BrowserModule, EmployeeListModule, BrowserAnimationsModule,
-    MatChipsModule],
+  imports: [BrowserModule, EmployeeListModule, BrowserAnimationsModule],
   providers: [ListGenerator],
   declarations: [AppComponent],
   bootstrap: [AppComponent]

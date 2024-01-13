@@ -20,15 +20,17 @@ const fibonacci = (num: number): number => {
 
     <mat-list>
       <div *ngIf="data?.length === 0" class="empty-list-label">Empty list</div>
-      <mat-list-item *ngFor="let item of data">
-        <h3 matLine title="Name">
-          {{ item.label }}
-        </h3>
-          <mat-chip title="Score" class="mat-chip mat-primary mat-chip-selected" color="primary" selected="true">
-            {{ calculate(item.num) }}
-          </mat-chip>
-        <i title="Delete" class="fa fa-trash-o" aria-hidden="true" (click)="remove.emit(item)"></i>
-      </mat-list-item>
+      <ng-container  *ngFor="let item of data">
+        <h3 title="Name">{{ item.label }}</h3>
+        <mat-list-item>
+          <mat-chip-listbox>
+            <mat-chip-option title="Score" color="primary" selected="true">
+              {{ calculate(item.num) }}
+            </mat-chip-option>
+          </mat-chip-listbox>
+          <i title="Delete" class="fa fa-trash-o" aria-hidden="true" (click)="remove.emit(item)"></i>
+        </mat-list-item>
+      </ng-container>
       <mat-divider *ngIf="data?.length !== 0"></mat-divider>
     </mat-list>
   `,
